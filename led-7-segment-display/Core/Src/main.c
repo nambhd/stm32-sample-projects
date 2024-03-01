@@ -42,27 +42,24 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-int BITMAP[10] = {
-				  /* 0100 0000 */
-				  0x40,
-				  /* 1111 1001 */
+int ANODE_7_SEG_MAP[10] = {
+				  0xC0,
 				  0xF9,
-				  /* 0010 0100 */
-				  0x24,
-				  /* 0011 0000 */
-				  0x30,
-				  /* 0001 1001 */
-				  0x19,
-				  /* 0001 0010 */
-				  0x12,
-				  /* 0000 0010 */
-				  0x02,
-				  /* 0011 1000 */
-				  0x38,
-				  /* 0000 0000 */
-				  0x00,
-				  /* 0001 0000 */
-				  0x10
+				  0xA4,
+				  0xB0,
+				  0x99,
+				  0x92,
+				  0x82,
+				  0x8F,
+				  0x80,
+				  0x90,
+				  0x88,
+				  0x83,
+				  0xC6,
+				  0xA1,
+				  0x86,
+				  0x8E
+
 };
 /* USER CODE END PV */
 
@@ -115,12 +112,13 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  for (int i = 0; i < sizeof BITMAP; i++)
-	  {
-		  GPIOA->ODR = BITMAP[i];
-		  HAL_Delay(1000);
-	  }
+
     /* USER CODE BEGIN 3 */
+	for (int i = 0; i < sizeof ANODE_7_SEG_MAP; i++)
+	{
+	  GPIOA->ODR = ANODE_7_SEG_MAP[i];
+	  HAL_Delay(1000);
+	}
   }
   /* USER CODE END 3 */
 }
